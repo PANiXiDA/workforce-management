@@ -1,5 +1,5 @@
-﻿using Example.Core.Application.Users.Abstractions;
-using Example.Core.Domain;
+using Example.Core.Application.Users.Abstractions;
+using Example.Core.Domain.Users;
 
 using MediatR;
 
@@ -24,7 +24,7 @@ namespace Example.Core.Application.Users.Create
                 request.LastName,
                 request.Email);
 
-             _userRepository.Add(user);
+            _userRepository.Add(user);
 
             return Task.FromResult(user.Id);
         }

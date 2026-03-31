@@ -103,6 +103,16 @@
     <Compile Include="Users\Abstractions\IUsersRepository.cs" />
     <Compile Include="Users\Create\CreateUserCommand.cs" />
     <Compile Include="Users\Create\CreateUserHandler.cs" />
+    <Compile Include="Users\Delete\DeleteUserCommand.cs" />
+    <Compile Include="Users\Delete\DeleteUserHandler.cs" />
+    <Compile Include="Users\GetById\GetUserByIdHandler.cs" />
+    <Compile Include="Users\GetById\GetUserByIdQuery.cs" />
+    <Compile Include="Users\Search\SearchUsersHandler.cs" />
+    <Compile Include="Users\Search\SearchUsersQuery.cs" />
+    <Compile Include="Users\Update\UpdateUserCommand.cs" />
+    <Compile Include="Users\Update\UpdateUserHandler.cs" />
+    <Compile Include="Users\UserReadModel.cs" />
+    <Compile Include="Users\UserReadModelMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -113,12 +123,6 @@
       <Project>{79d8efda-0777-4282-b3a4-1643e1e759a3}</Project>
       <Name>Example.Core.Domain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Users\Delete\" />
-    <Folder Include="Users\GetById\" />
-    <Folder Include="Users\Search\" />
-    <Folder Include="Users\Update\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

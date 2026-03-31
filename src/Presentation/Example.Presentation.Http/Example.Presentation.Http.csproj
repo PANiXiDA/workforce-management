@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -165,10 +165,19 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Features\Users\Create\CreateUserController.cs" />
     <Compile Include="Features\Users\Create\CreateUserMapper.cs" />
     <Compile Include="Features\Users\Create\CreateUserRequest.cs" />
     <Compile Include="Features\Users\Create\CreateUserResponse.cs" />
+    <Compile Include="Features\Users\Delete\DeleteUserMapper.cs" />
+    <Compile Include="Features\Users\GetById\GetUserByIdMapper.cs" />
+    <Compile Include="Features\Users\GetById\GetUserByIdResponse.cs" />
+    <Compile Include="Features\Users\Search\SearchUsersItemResponse.cs" />
+    <Compile Include="Features\Users\Search\SearchUsersMapper.cs" />
+    <Compile Include="Features\Users\Search\SearchUsersRequest.cs" />
+    <Compile Include="Features\Users\Search\SearchUsersResponse.cs" />
+    <Compile Include="Features\Users\Update\UpdateUserMapper.cs" />
+    <Compile Include="Features\Users\Update\UpdateUserRequest.cs" />
+    <Compile Include="Features\Users\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,12 +191,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\Users\Delete\" />
-    <Folder Include="Features\Users\GetById\" />
-    <Folder Include="Features\Users\Search\" />
-    <Folder Include="Features\Users\Update\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Example.Core.Application\Example.Core.Application.csproj">

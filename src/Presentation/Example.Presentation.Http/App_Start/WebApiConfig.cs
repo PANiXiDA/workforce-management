@@ -1,8 +1,8 @@
-﻿using Autofac;
+using Autofac;
 using Autofac.Integration.WebApi;
 using Example.Core.Application.Users.Abstractions;
 using Example.Core.Application.Users.Create;
-using Example.Infrastructure.Memory;
+using Example.Infrastructure.Memory.Users;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using MediatR.Extensions.Autofac.DependencyInjection.Builder;
 

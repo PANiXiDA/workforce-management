@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Net.Mail;
 
-namespace Example.Core.Domain
+namespace Example.Core.Domain.Users
 {
     public sealed class User
     {

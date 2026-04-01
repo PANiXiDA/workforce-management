@@ -24,13 +24,12 @@ namespace WorkforceManagement.Core.Domain.Users.Entities
         public DateTime? ProbationEndDate { get; private set; }
 
         public static EmploymentProfile Create(
-            int id,
             string positionTitle,
             DateTime hireDate,
             DateTime? probationEndDate)
         {
             return new EmploymentProfile(
-                NormalizeId(id),
+                0,
                 NormalizePositionTitle(positionTitle),
                 NormalizeDate(hireDate, nameof(hireDate)),
                 NormalizeProbationEndDate(hireDate, probationEndDate));
@@ -46,14 +45,19 @@ namespace WorkforceManagement.Core.Domain.Users.Entities
             ProbationEndDate = NormalizeProbationEndDate(hireDate, probationEndDate);
         }
 
-        private static int NormalizeId(int id)
+        public void AssignId(int id)
         {
             if (id <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(id), "Employment profile id must be greater than zero.");
             }
 
-            return id;
+            if (Id > 0)
+            {
+                throw new InvalidOperationException("Employment profile id has already been assigned.");
+            }
+
+            Id = id;
         }
 
         private static string NormalizePositionTitle(string positionTitle)

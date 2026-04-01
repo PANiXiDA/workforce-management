@@ -13,7 +13,6 @@ namespace WorkforceManagement.Core.Domain.Users
         private const int MaxFirstNameLength = 100;
         private const int MaxLastNameLength = 100;
         private const int MaxEmailLength = 256;
-        private const int EmploymentProfileId = 1;
 
         private readonly List<ContactMethod> _contactMethods;
         private int _currentContactMethodId;
@@ -72,7 +71,7 @@ namespace WorkforceManagement.Core.Domain.Users
                 NormalizeOrganizationId(organizationId),
                 NormalizeEmploymentType(employmentType),
                 NormalizePlannedWeeklyHours(plannedWeeklyHours),
-                EmploymentProfile.Create(EmploymentProfileId, positionTitle, hireDate, probationEndDate));
+                EmploymentProfile.Create(positionTitle, hireDate, probationEndDate));
 
             user.EnsureEmploymentInvariant();
 
@@ -159,6 +158,7 @@ namespace WorkforceManagement.Core.Domain.Users
             }
 
             Id = id;
+            EmploymentProfile.AssignId(id);
         }
 
         private void EnsureEmploymentInvariant()

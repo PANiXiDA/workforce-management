@@ -19,12 +19,11 @@ namespace WorkforceManagement.Core.Domain.Projects.Entities
         public int? IterationLengthDays { get; private set; }
 
         public static ProjectSettings Create(
-            int id,
             bool isTimeboxed,
             int? iterationLengthDays)
         {
             return new ProjectSettings(
-                NormalizeId(id),
+                0,
                 isTimeboxed,
                 NormalizeIterationLengthDays(isTimeboxed, iterationLengthDays));
         }
@@ -37,14 +36,19 @@ namespace WorkforceManagement.Core.Domain.Projects.Entities
             IterationLengthDays = NormalizeIterationLengthDays(isTimeboxed, iterationLengthDays);
         }
 
-        private static int NormalizeId(int id)
+        public void AssignId(int id)
         {
             if (id <= 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(id), "Project settings id must be greater than zero.");
             }
 
-            return id;
+            if (Id > 0)
+            {
+                throw new InvalidOperationException("Project settings id has already been assigned.");
+            }
+
+            Id = id;
         }
 
         private static int? NormalizeIterationLengthDays(bool isTimeboxed, int? iterationLengthDays)

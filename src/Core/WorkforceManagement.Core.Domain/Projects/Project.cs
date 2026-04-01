@@ -7,7 +7,6 @@ namespace WorkforceManagement.Core.Domain.Projects
     public sealed class Project
     {
         private const int MaxNameLength = 200;
-        private const int ProjectSettingsId = 1;
 
         private Project(
             int id,
@@ -47,7 +46,7 @@ namespace WorkforceManagement.Core.Domain.Projects
                 normalizedName,
                 normalizedStartDate,
                 normalizedEndDate,
-                ProjectSettings.Create(ProjectSettingsId, isTimeboxed, iterationLengthDays));
+                ProjectSettings.Create(isTimeboxed, iterationLengthDays));
         }
 
         public void Update(
@@ -79,6 +78,7 @@ namespace WorkforceManagement.Core.Domain.Projects
             }
 
             Id = id;
+            Settings.AssignId(id);
         }
 
         private static string NormalizeName(string name)
